@@ -1,14 +1,17 @@
 // spaghetti monster code
 
+// #region CONTROLLER CODE
 const mainContent = document.getElementById('content');
 
-
-    const newListButton = document.getElementById('newListButton');
+const newListButton = document.getElementById('newListButton');
     newListButton.addEventListener('click',()=>{
  const content = document.getElementById('content');
-    
-    // Clear the content
+
+// Clear the content
     content.innerHTML = '';
+//#endregion
+
+// #region MODEL CODE
     
     // Create a section container
     const section = document.createElement('section');
@@ -29,10 +32,11 @@ const mainContent = document.getElementById('content');
     okButton.textContent = 'OK';
     okButton.addEventListener('click', () => {
         console.log('OK clicked, list name:', input.value);
-       mainContent.innerHTML = '';
-    const list = document.createElement('div');
-    list.innerHTML = '<h2>List View</h2><ul></ul>';
-    mainContent.appendChild(list);
+        makeListView();
+    //    mainContent.innerHTML = '';
+    // const list = document.createElement('div');
+    // list.innerHTML = '<h2>List View</h2><ul></ul>';
+    // mainContent.appendChild(list);
     });
     
     // Create Cancel button
@@ -40,12 +44,15 @@ const mainContent = document.getElementById('content');
     cancelButton.textContent = 'Cancel';
     cancelButton.addEventListener('click', () => {
         console.log('Cancel clicked');
-      mainContent.innerHTML = '';
-    const list = document.createElement('div');
-    list.innerHTML = '<h2>List View</h2><ul></ul>';
-    mainContent.appendChild(list);
+        makeListView();
+    //   mainContent.innerHTML = '';
+    // const list = document.createElement('div');
+    // list.innerHTML = '<h2>List View</h2><ul></ul>';
+    // mainContent.appendChild(list);
     });
-    
+// #endregion
+
+// #region CONTROLLER CODE
     // Append all elements to the section
     section.appendChild(label);
     section.appendChild(input);
@@ -55,14 +62,25 @@ const mainContent = document.getElementById('content');
     // Append section to content
     content.appendChild(section);
     });
+// #endregion 
 
+// #region REN VIEW CODE
         mainContent.innerHTML = '';
     const list = document.createElement('div');
     list.innerHTML = '<h2>List View</h2><ul></ul>';
     mainContent.appendChild(list);
+// #endregion
 
+// #region  VIEW CODE
+function makeListView(){
+    mainContent.innerHTML = '';
+    const list = document.createElement('div');
+    list.innerHTML = '<h2>List View</h2><ul></ul>';
+    mainContent.appendChild(list);
+}
 
-
+makeListView()
+// #endregion
 
 
  
